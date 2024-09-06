@@ -1372,6 +1372,9 @@ class Workbook {
 
         rel.set('Target', '../media/image' + maxFildId + '.jpg');
         function toArrayBuffer(buffer) {
+            if (!buffer || !buffer.length) {
+                throw new Error("Invalid buffer");
+            }
             var ab = new ArrayBuffer(buffer.length);
             var view = new Uint8Array(ab);
             for (var i = 0; i < buffer.length; ++i) {
@@ -1805,6 +1808,9 @@ class Workbook {
         return !!pattern.test(str);
     }
     toArrayBuffer(buffer) {
+        if (!buffer || !buffer.length) {
+            throw new Error("Invalid buffer");
+        }
         var ab = new ArrayBuffer(buffer.length);
         var view = new Uint8Array(ab);
         for (var i = 0; i < buffer.length; ++i) {
